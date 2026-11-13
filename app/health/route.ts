@@ -1,9 +1,27 @@
 export async function GET() {
-    const appEnv = process.env.APP_ENV || 'unknown'
+    try {
+        const appEnv = process.env.APP_ENV
 
-    return Response.json({
-        status: 'ok',
-        environment: appEnv,
-        timestamp: new Date().toISOString()
-    })
+        if (!appEnv) {
+            throw new Error('APP_ENV environment variable is missing')
+        }
+
+        console.info('[TaskFlow] Health check requested')
+
+        return Response.json({
+            status: 'ok',
+            environment: appEnv,
+            timestamp: new Date().toISOString()
+        })
+    } catch (error) {
+        console.error('[TaskFlow] Health check failed:', error)
+
+        return Response.json(
+            {
+                status: 'error',
+                message: 'Health check failed'
+            },
+            { status: 500 }
+        )
+    }
 }
