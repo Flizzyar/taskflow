@@ -28,6 +28,11 @@ jobs:
             - name: Build Next.js
               run: npm run build
 
+            - name: Build Next.js
+              run: npm run build
+              env:
+                  APP_ENV: production
+
             - name: Build Docker image
               run: docker build -t taskflow .
 
