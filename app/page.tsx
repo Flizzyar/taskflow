@@ -57,7 +57,7 @@ export default function Home() {
     const remainingTasks = tasks.filter((task) => !task.completed).length
 
     return (
-        <div className="min-h-screen bg-[#f5f6fa] text-gray-800 md:flex md:gap-4 md:p-4">
+        <div className="min-h-screen bg-[#f5f6fa] md:flex md:gap-4 md:p-4">
             <Sidebar active={active} onChange={setActive} />
 
             <main className="min-w-0 flex-1 p-4 md:p-0">
