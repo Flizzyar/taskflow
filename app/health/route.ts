@@ -1,16 +1,4 @@
-export async function GET(request: Request) {
-    const url = new URL(request.url)
-
-    // Temporary error log test
-    if (url.searchParams.get('testError') === '1') {
-        console.error('[TaskFlow] TEST ERROR: Controlled error log test')
-
-        return Response.json({
-            status: 'ok',
-            message: 'Test error logged'
-        })
-    }
-
+export async function GET() {
     try {
         const appEnv = process.env.APP_ENV
 
