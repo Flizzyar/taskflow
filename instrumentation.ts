@@ -1,4 +1,6 @@
 export async function register() {
+    console.info('[TaskFlow] Application started successfully')
+
     console.log('================================')
     console.log('[TaskFlow] SERVER STARTED')
     console.log('[TaskFlow] Environment:', process.env.NODE_ENV)

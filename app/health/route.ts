@@ -6,8 +6,6 @@ export async function GET() {
             throw new Error('APP_ENV environment variable is missing')
         }
 
-        console.info('[TaskFlow] Health check requested')
-
         return Response.json({
             status: 'ok',
             environment: appEnv,
